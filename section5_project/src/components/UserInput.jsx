@@ -1,27 +1,37 @@
-import { useState } from "react";
-import { calculateInvestmentResults } from "../util/investment.js";
-
 import InputGroup from "./inputGroup";
 
-let initialInvestment, annualInvestment, expectedReturn, duration;
-
-function handleNumberChange1(a = 0) {
-  console.log(a);
-  return a;
-}
-
-export default function UserInput() {
-  const aaa = calculateInvestmentResults({
-    initialInvestment: handleNumberChange1(),
-    annualInvestment,
-    expectedReturn,
-    duration,
-  });
-  console.log(aaa);
+export default function UserInput({ onChangeInput, user }) {
+  // console.log(onChangeInput);
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
-        <InputGroup
+        <p>
+          <label>
+            INITIAL INVESTMENT
+            <input
+              type="number"
+              required
+              value={user.initialInvestment}
+              onChange={(event) =>
+                onChangeInput("initialInvestment", event.target.value)
+              }
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            ANNUAL INVESTMENT
+            <input
+              type="number"
+              required
+              value={user.annualInvestment}
+              onChange={(event) =>
+                onChangeInput("annualInvestment", event.target.value)
+              }
+            />
+          </label>
+        </p>
+        {/* <InputGroup
           initail={(initialInvestment = 0)}
           onChangeNumber={handleNumberChange1}
         >
@@ -29,31 +39,57 @@ export default function UserInput() {
         </InputGroup>
         <InputGroup initail={(annualInvestment = 0)}>
           ANNUAL INVESTMENT
-        </InputGroup>
+        </InputGroup> */}
 
         {/* <label>
           INITIAL INVESTMENT
-          <input type="text" value={initail} onChange={handleInputChange} />
+          <input type="number" value={initail} onChange={handleInputChange} />
         </label> */}
         {/* <label>
           ANNUAL INVESTMENT
-          <input type="text" />
+          <input type="number" />
         </label>
       </div>
       <div className="input-group">
         <label>
           EXPECTED RETURN
-          <input type="text" />
+          <input type="number" />
         </label>
         <label>
           DURATION
-          <input type="text" />
+          <input type="number" />
         </label> */}
       </div>
       <div className="input-group">
-        <InputGroup initail={(expectedReturn = 0)}>EXPECTED RETURN</InputGroup>
-        <InputGroup initail={(duration = 0)}>DURATION</InputGroup>
+        <p>
+          <label>
+            EXPECTED RETURN
+            <input
+              type="number"
+              required
+              value={user.expectedReturn}
+              onChange={(event) =>
+                onChangeInput("expectedReturn", event.target.value)
+              }
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            DURATION
+            <input
+              type="number"
+              required
+              value={user.duration}
+              onChange={(event) =>
+                onChangeInput("duration", event.target.value)
+              }
+            />
+          </label>
+        </p>
+        {/* <InputGroup initail={(expectedReturn = 0)}>EXPECTED RETURN</InputGroup>
+        <InputGroup initail={(duration = 0)}>DURATION</InputGroup> */}
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,26 +1,34 @@
+import { useState } from "react";
+
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
 import Result from "./components/Result";
 
-import { calculateInvestmentResults } from "./util/investment.js";
-const initialInvestment = 15000;
-const annualInvestment = 900;
-const expectedReturn = 10;
-const duration = 2;
-const aaa = calculateInvestmentResults({
-  initialInvestment,
-  annualInvestment,
-  expectedReturn,
-  duration,
-});
-// console.log(aaa);
-
 function App() {
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 1000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
+  });
+
+  const inputIsValid = userInput.duration >= 1;
+
+  function handleChange(inputIdentifier, vewValue) {
+    setUserInput((prevUserInput) => {
+      return {
+        ...prevUserInput,
+        [inputIdentifier]: +vewValue,
+      };
+    });
+  }
+
   return (
     <>
       <Header />
-      <UserInput />
-      <Result />
+      <UserInput onChangeInput={handleChange} user={userInput} />
+      {inputIsValid && <Result input={userInput} />}
+      {!inputIsValid && <p className="center">기간을 다시 입력하세요</p>}
     </>
   );
 }
