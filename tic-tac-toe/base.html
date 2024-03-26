@@ -1,62 +1,96 @@
-<main>
-    <div id="game-container">
-      <ol id="players">
-        <li>
-          <span className="player">
-            <span className="player-name">Player 1</span>
-            <span className="player-symobl">X</span>
-          </span>
-          <button>Edit</button>
-        </li>
-        <li>
-          <span className="player">
-            <span className="player-name">Player 2</span>
-            <span className="player-symobl">O</span>
-          </span>
-          <button>Edit</button>
-        </li>
-      </ol>
-      <ol id="game-board">
-        <li>
-          <ol>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-          </ol>
-        </li>
-        <li>
-          <ol>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-          </ol>
-        </li>
-        <li>
-          <ol>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-            <li>
-              <button></button>
-            </li>
-          </ol>
-        </li>
-      </ol>
-    </div>
-    LOG
-  </main>
+<html lang="en">
+<head>
+
+ </head>
+  <body >
+    <header>
+      <img src="/game-logo.png" alt="logo">
+      <h1>React Tic-Tac-Toe</h1>
+    </header>
+    <div id="root">
+	<main>
+<div id="game-container">
+<ol id="players" class="highlight-player">
+<li>
+<span class="player">
+<input type="text" value="kim">
+<span class="player-symbol">X</span>
+</span>
+<button>Save</button>
+</li>
+<li class="active">
+<span class="player">
+<span class="player-name">Player 2</span>
+<span class="player-symbol">O</span>
+</span>
+<button>Edit</button>
+</li>
+</ol>
+<div id="game-over">
+<h2>Game Over!</h2>
+<p>Player 1 won!</p>
+<p>
+<button>Rematch!</button>
+</p>
+</div>
+<ol id="game-board">
+<li>
+<ol>
+<li>
+<button disabled="">X</button>
+</li>
+<li>
+<button disabled="">O</button>
+</li>
+<li>
+<button>
+</button>
+</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>
+<button disabled="">X</button>
+</li>
+<li>
+<button disabled="">O</button>
+</li>
+<li>
+<button>
+</button>
+</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>
+<button disabled="">X</button>
+</li>
+<li>
+<button>
+</button>
+</li>
+<li>
+<button>
+</button>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<ol id="log">
+<li>X selected 2,0</li>
+<li>O selected 1,1</li>
+<li>X selected 1,0</li>
+<li>O selected 0,1</li>
+<li>X selected 0,0</li>
+</ol>
+</main>
+</div>
+    <script type="module" src="/src/index.jsx">
+</script>
+  
+
+</body>
+</html>
